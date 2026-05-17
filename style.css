@@ -999,6 +999,30 @@ footer p {
     box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06);
 }
 
+/* Hobbies/tag grid */
+.hobby-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem 1rem;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 1.5rem auto 0;
+}
+
+.hobby {
+    background: #f1fbfa;
+    border: 1px solid #d7efec;
+    color: #111827;
+    padding: 0.55rem 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.hobby:hover {
+    background: #e6f7f4;
+}
+
 .homepage .hero-actions .btn-primary {
     background: #111827;
     color: #ffffff;
