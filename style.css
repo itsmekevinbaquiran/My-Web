@@ -158,7 +158,7 @@ textarea {
 .btn-secondary {
     display: inline-block;
     padding: 12px 20px;
-    background-color: #1f6feb;
+    background-color: #111827;
     color: white;
     text-decoration: none;
     border-radius: 6px;
@@ -766,10 +766,211 @@ footer p {
     margin: 0;
 }
 
+.homepage {
+    color-scheme: light;
+    background: #ffffff;
+    color: #111827;
+}
 
+.homepage .site-header {
+    background: transparent;
+    box-shadow: none;
+}
 
-@media (max-width: 900px) {
-    .hero {
+.homepage .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.25rem 2rem;
+    background: #ffffff;
+    border-radius: 24px;
+    border: 1px solid #e5e7eb;
+}
+
+.homepage .logo {
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #111827;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex: 1;
+}
+
+.nav-links a {
+    color: #475569;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #111827;
+}
+
+.nav-cta {
+    padding: 0.95rem 1.8rem;
+    background: #111827;
+    color: #ffffff;
+    border-radius: 999px;
+}
+
+.homepage .hero {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 3rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.homepage .hero-copy {
+    max-width: 640px;
+}
+
+.homepage .hero-eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.35em;
+    color: #111827;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.homepage h1 {
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    line-height: 1.02;
+    margin-bottom: 1rem;
+    color: #111827;
+}
+
+.homepage h1 span {
+    color: #111827;
+}
+
+.homepage .hero-subtitle {
+    max-width: 580px;
+    margin-bottom: 2rem;
+    color: #475569;
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.homepage .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.homepage .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.stat-item {
+    padding: 1rem 1.25rem;
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.stat-item strong {
+    display: block;
+    font-size: 1.65rem;
+    color: #111827;
+    margin-bottom: 0.35rem;
+}
+
+.stat-item span {
+    color: #64748b;
+}
+
+.homepage .hero-visual {
+    display: flex;
+    justify-content: center;
+}
+
+.visual-ring {
+    width: min(430px, 100%);
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, rgba(17, 24, 39, 0.08), transparent 58%);
+    display: grid;
+    place-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.visual-ring::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 2px rgba(17, 24, 39, 0.08);
+}
+
+.visual-ring::after {
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 60%;
+    border-radius: 50%;
+    background: rgba(17, 24, 39, 0.04);
+    top: 20%;
+    left: 20%;
+}
+
+.profile-photo {
+    width: 72%;
+    max-width: 280px;
+    border-radius: 50%;
+    border: 5px solid #ffffff;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+}
+
+.homepage .section.about {
+    padding-top: 0;
+}
+
+.homepage .summary-card,
+.homepage .contact-form {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    color: #111827;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06);
+}
+
+.homepage .hero-actions .btn-primary {
+    background: #111827;
+    color: #ffffff;
+}
+
+.homepage .hero-actions .btn-secondary {
+    background: #f5f5f5;
+    color: #111827;
+    border: 1px solid #111827;
+}
+
+.homepage .btn-secondary:hover,
+.nav-cta:hover {
+    opacity: 0.9;
+}
+
+@media (max-width: 1024px) {
+    .homepage .hero {
         grid-template-columns: 1fr;
         text-align: center;
     }
@@ -778,8 +979,29 @@ footer p {
         order: -1;
     }
 
-    .contact-grid {
+    .home-page .hero-stats,
+    .hero-stats {
         grid-template-columns: 1fr;
+    }
+
+    .nav-links {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 720px) {
+    .homepage .topbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .nav-links {
+        justify-content: center;
+    }
+
+    .hero {
+        padding: 1.5rem;
     }
 }
 
