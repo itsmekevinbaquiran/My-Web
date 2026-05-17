@@ -41,6 +41,24 @@ const aboutSummary = document.querySelector('#about-summary');
 const aboutHeader = document.querySelector('#about .section-header');
 let infoLoaded = false;
 
+// Mobile nav toggle
+const navToggle = document.querySelector('#nav-toggle');
+const navLinks = document.querySelector('.nav-links');
+if (navToggle && navLinks) {
+    navToggle.addEventListener('click', function() {
+        const isOpen = navLinks.classList.toggle('open');
+        navToggle.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Close mobile nav when a link is clicked
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+    }));
+}
+
 if (learnMoreLink && aboutSummary && aboutHeader) {
     learnMoreLink.addEventListener('click', async function() {
         if (infoLoaded) {
