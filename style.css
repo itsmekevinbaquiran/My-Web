@@ -29,6 +29,9 @@ input,
 textarea {
     font: inherit;
 }
+html {
+    scroll-behavior: smooth;
+}
 
 /* == Header / Topbar =======================================================
    Styles for the site header and topbar (logo, navigation).
@@ -128,11 +131,28 @@ textarea {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem 2rem;
+
+}   
+
+.stat-item{
+    display: flex;
+    gap: 1.5rem;
 }
+
+.stat-item {
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px rgba(2, 6, 23, 0.);
+}
+
 
 .hero-copy {
     max-width: 620px;
     padding-top: 1rem;
+   
 }
 
 .hero-eyebrow {
@@ -259,10 +279,29 @@ textarea {
 }
 
 body.about-page .section {
-    padding: 1rem 2rem;
+    position: relative;
+    padding: 2.5rem 2rem;   
+    max-width: 1200px;
+    margin: 2rem auto;
+    background: #ffffff;
+    border-radius: 32px;
+    border: 1px solid rgb(72, 225, 236);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.about-page .section:hover {
+    border-color: rgb(72, 225, 236);
+    box-shadow: 0 0 0 4px rgba(236,72,153,0.12);
+    animation: pinkBorderPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes pinkBorderPulse {
+    0%, 100% { border-color: rgb(72, 225, 236); }
+    50% { border-color: rgb(72, 225, 236) }
 }
 
 .section-header {
+    transition: all 0.3s ease;
     text-align: center;
     max-width: 760px;
     margin: 0 auto 2.5rem;
@@ -272,6 +311,8 @@ body.about-page .section {
 
 body.about-page .section-header {
     margin-bottom: 2rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .section-header.small {
@@ -297,10 +338,11 @@ body.about-page .section-header {
 }
 
 .section-header p {
-    color: #334155;
+    color: #000000;
     font-size: 1rem;
     line-height: 1.7;
     font-weight: 500;
+    color: var(--primary);
     -webkit-font-smoothing: antialiased;
 }
 
@@ -584,23 +626,10 @@ body.about-page .cert-card {
     color: #475569;
     font-weight: 600;
 }
-
-.form-row input {
-    width: 100%;
-    padding: 1rem 1.1rem;
-    border-radius: 18px;
-    border: 1px solid #cbd5e1;
-    background: #f8fafc;
-}
-
-.form-row input:focus {
-    outline: none;
-    border-color: #334155;
-}
-
+    
 .tag-list {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 0.75rem;
 }
 
@@ -620,10 +649,7 @@ body.about-page .cert-card {
     flex-wrap: wrap;
 }
 
-.form-message {
-    color: #16a34a;
-    font-weight: 600;
-}
+/* form-message default styling is defined later with page-specific colors */
 
 .hero-contact {
     color: #475569;
@@ -798,6 +824,33 @@ body.about-page .cert-card {
     .nav-links.open { display: flex; }
     .topbar { gap: 0.75rem; }
 
+
+/* Projects gallery styles */
+.projects-grid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    align-items: start;
+    margin-top: 1.5rem;
+}
+.project-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 1rem;
+    border: 1px solid rgba(2,6,23,0.04);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.project-card:hover { transform: translateY(-6px); box-shadow: 0 18px 60px rgba(2,6,23,0.06); }
+.project-link { display:block; color:inherit; }
+.project-thumb { height:160px; border-radius:12px; margin-bottom:0.75rem; background-size:cover; background-position:center; }
+.thumb-modern { background: linear-gradient(135deg,#0ea5e9 0%, #7c3aed 100%); }
+.thumb-minimal { background: linear-gradient(135deg,#ffffff 0%, #eef2ff 100%); border:1px solid #e6eef6; }
+.project-title { margin:0 0 0.25rem 0; font-size:1.05rem; }
+.project-excerpt { color:var(--muted); font-size:0.95rem; }
+
+@media (max-width: 720px) {
+    .project-thumb { height:120px; }
+}
     .hero { grid-template-columns: 1fr; }
     .hero-visual { order: -1; margin-bottom: 1rem; }
     .hero-copy { padding-top: 0; }
@@ -921,6 +974,7 @@ footer p {
     gap: 2rem;
     justify-content: center;
     flex: 1;
+    justify-content: flex-end;
 }
 
 .nav-links a {
@@ -1074,26 +1128,32 @@ footer p {
 
 /* Hobbies/tag grid */
 .hobby-grid {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 0.8rem 1rem;
     justify-content: center;
     max-width: 1000px;
     margin: 1.5rem auto 0;
+    box-sizing: border-box;
 }
 
+/* Hobby buttons: transparent fill, border-only */
 .hobby {
-    background: #f1fbfa;
-    border: 1px solid #d7efec;
-    color: #111827;
+    background: transparent;
+    border: 1px solid rgba(15,23,42,0.06);
+    color: var(--primary);
     padding: 0.55rem 1rem;
     border-radius: 8px;
     font-weight: 600;
     cursor: pointer;
+    transition: border-color 0.22s ease, color 0.22s ease, transform 0.14s ease;
 }
 
+/* Hovering a hobby also highlights the parent about-section via section:hover (applies when hovering anywhere inside) */
 .hobby:hover {
-    background: #e6f7f4;
+    border-color:rgb(72, 225, 236);
+    
+    transform: translateY(-3px);
 }
 
 .homepage .hero-actions .btn-primary {
@@ -1131,6 +1191,31 @@ footer p {
         justify-content: flex-start;
         flex-wrap: wrap;
     }
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: #f5f6f7;
+    margin-top: 5rem;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.social-links a {
+    color: #333;
+    font-size: 2.2rem;
+    transition: 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #ff69b4;
+    transform: translateY(-5px);
 }
 
 @media (max-width: 720px) {
@@ -1177,4 +1262,5 @@ footer p {
     header {
         padding-bottom: 0;
     }
+
 }
