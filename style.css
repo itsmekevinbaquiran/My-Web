@@ -4,6 +4,77 @@
     box-sizing: border-box;
 }
 
+/* Extra mobile polish: ensure images, buttons and hero stack cleanly on small phones */
+@media (max-width: 480px) {
+    img, .project-thumb, .profile-photo {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        gap: 0.6rem;
+        align-items: stretch;
+    }
+
+    .hero-actions .btn,
+    .nav-cta,
+    .btn {
+        width: 100%;
+        justify-content: center;
+        padding-left: 0.9rem;
+        padding-right: 0.9rem;
+    }
+
+    .topbar {
+        padding: 0.5rem 0.75rem;
+    }
+
+    .nav-links {
+        font-size: 1rem;
+        padding: 0.5rem 0;
+    }
+
+    .nav-toggle {
+        display: inline-flex;
+    }
+}
+
+@media (max-width: 480px) {
+    .topbar {
+        flex-wrap: wrap;
+        align-items: center;
+        padding: 0.75rem 1rem;
+    }
+    .nav-toggle { order: 1; }
+    .logo { position: static; transform: none; margin: 0 auto; order: 2; }
+    .nav-cta {
+        order: 4;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 0.5rem;
+        padding: 0.6rem 1rem;
+    }
+    .nav-links.open {
+        width: 100%;
+        position: static;
+        background: transparent;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.25rem;
+        padding: 0.5rem 0;
+        display: flex;
+    }
+    .nav-links a {
+        display: block;
+        width: 100%;
+        padding: 0.5rem 0;
+        text-align: center;
+        color: inherit;
+    }
+}
+
 :root {
     color-scheme: light;
     font-family: 'Inter', Arial, sans-serif;
