@@ -67,7 +67,15 @@ html {
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: #111827;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
+
+
 
 /* Mobile nav toggle (hidden on desktop) */
 .nav-toggle {
