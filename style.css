@@ -850,6 +850,7 @@ body.about-page .cert-card {
     padding behaviour at smaller widths.
     ========================================================================== */
 @media (max-width: 992px) {
+
     .offer-grid,
     .cases,
     .stat-grid,
@@ -1313,7 +1314,7 @@ footer {
 }
 
 /* Ensure about page header stacks and clears content on small screens */
-@media (max-width: 720px) {
+@media (max-width: 768px) {
     .about-page .site-header {
         position: relative;
         z-index: 30;
@@ -1331,6 +1332,7 @@ footer {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        margin-left: auto;
     }
     .about-page .topbar-right {
         justify-content: flex-end;
